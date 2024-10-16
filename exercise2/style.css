@@ -1,0 +1,227 @@
+/* Simple CSS resecik */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Defaults */
+html {
+  font-size: 16px;
+}
+
+/* Font size utilities */
+.text-sm {
+  font-size: 0.875rem;
+}
+.text-base {
+  font-size: 1rem;
+}
+.text-lg {
+  font-size: 1.125rem;
+}
+.text-xl {
+  font-size: 1.25rem;
+}
+.text-2xl {
+  font-size: 1.5rem;
+}
+.text-3xl {
+  font-size: 1.875rem;
+}
+
+/* Text alignment */
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+  height: 120px;
+  padding: 12px 32px;
+  color: teal;
+  border-bottom: 4px solid teal;
+}
+
+.logo {
+  width: 100px;
+  font-weight: 700;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.logo a {
+  text-decoration: none;
+  color: teal;
+}
+
+.logo a:hover {
+  color: coral;
+}
+
+nav ul {
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  list-style-type: none;
+  letter-spacing: 1px;
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+nav ul li a {
+  width: full;
+  height: full;
+  color: teal;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: coral;
+}
+
+/* Main about us */
+#about-us {
+  display: flex;
+  flex-direction: row;
+  padding: 32px;
+  gap: 20px;
+}
+
+#about-us div {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 52px;
+}
+
+#about-us img {
+  width: 100%;
+  max-width: 50%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+#about-us h1 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+#about-us p {
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+#about-us thead tr {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 4px;
+  border: 1px solid teal;
+  margin-bottom: 4px;
+}
+
+#about-us tbody tr {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  text-align: center;
+  padding: 4px;
+  margin-bottom: 8px;
+  border-bottom: 1px dashed teal;
+}
+
+/* Side menu */
+.side-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 20px;
+  min-width: 25%;
+  border-left: 4px solid teal;
+}
+
+.side-menu ol {
+  list-style-position: inside;
+}
+
+.side-menu ol a {
+  color: teal;
+  text-decoration: none;
+}
+
+.side-menu ol a:hover {
+  color: coral;
+}
+
+/* Footer */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  padding: 32px;
+  font-size: 1rem;
+  color: white;
+  background: teal;
+}
+
+@media screen and (max-width: 768px) {
+  #about-us div {
+    flex-direction: column;
+  }
+
+  #about-us img {
+    max-width: 100%;
+  }
+
+  .side-menu {
+    display: none;
+  }
+}
+
+/* Print */
+@media print {
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
+
+  body {
+    font-family: "Times New Roman", Times, serif;
+  }
+
+  nav {
+    display: none;
+  }
+
+  #about-us .side-menu {
+    display: none;
+  }
+
+  #about-us table {
+    page-break-before: always;
+  }
+}
