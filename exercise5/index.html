@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "primary-orange": "#FC7136",
+              "secondary-orange": "#ff9e17",
+              green: "#69B13C",
+            },
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <script src="script.js" defer></script>
+  </head>
+  <body class="min-h-lvh flex flex-col items-center justify-center">
+    <div
+      class="mt-10 rounded-[50px] border-4 border-primary-orange bg-white p-8"
+    >
+      <form
+        id="contact-form"
+        class="grid grid-cols-1 gap-8 p-5 md:grid-cols-2"
+        onSubmit="onSubmit(event)"
+      >
+        <div class="text-black">
+          <label for="name" class="font-semibold">Imię i nazwisko *</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            autocomplete="name"
+            class="w-full border-2 mt-2 rounded-lg border-green p-2 focus:rounded focus:border-transparent focus:outline-primary-orange"
+          />
+          <p id="nameError" class="hidden text-red-500"></p>
+        </div>
+        <div class="text-black">
+          <label for="email" class="font-semibold">E-mail *</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="email"
+            class="w-full border-2 mt-2 rounded-lg border-green p-2 focus:rounded focus:border-transparent focus:outline-primary-orange"
+          />
+          <div id="emailError" class="hidden text-red-500"></div>
+        </div>
+        <div class="flex flex-col md:col-span-2">
+          <label for="message" class="font-semibold">Wiadomość *</label>
+          <textarea
+            name=""
+            id="message"
+            name="message"
+            rows="5"
+            class="w-full border-2 mt-2 rounded-lg border-green p-2 focus:rounded focus:border-transparent focus:outline-primary-orange"
+          ></textarea>
+          <div id="messageError" class="hidden text-red-500"></div>
+        </div>
+        <div class="flex md:col-span-2">
+          <input
+            type="checkbox"
+            id="dataProcessing"
+            name="dataProcessing"
+            value="tak"
+            class="mr-2 focus:rounded focus:border-transparent focus:outline-primary-orange"
+          />
+          <label for="dataProcessing" class="w-full text-sm text-neutral-500"
+            >Wyrażam zgodę na przetwarzaniu moich danych osobowych w celach
+            przetworzenia zapytania. *</label
+          >
+          <span
+            class="ml-4 cursor-pointer self-end text-sm text-primary-orange/85 hover:text-green"
+            id="dataProcessingInfoView"
+            >Info</span
+          >
+        </div>
+        <div
+          id="dataProcessingInfo"
+          class="mt-2 hidden p-2 text-sm text-neutral-600 md:col-span-2 max-w-2xl"
+        >
+          Wyrażam zgodę na przetwarzanie danych osobowych zgodnie z ustawą o
+          ochronie danych osobowych w związu z wysłaniem zapytania przez
+          formularz kontaktowy. Podanie danych jest dobrowolne, ale niezbędne do
+          przetworzenia zapytania. Zostałem poinformowany o prawie dostępu do
+          swoich danych, możliwości ich poprawiania oraz żądania zaprzestania
+          ich przetwarzania. Administratorem danych osobowych jest firma
+          edukacyjna Aha w Niestniejowie 33Z 31-415.
+        </div>
+        <div
+          id="dataProcessingError"
+          class="hidden text-red-500 md:col-span-2"
+        ></div>
+        <p class="items-end text-sm text-neutral-500">* - pole wymagane</p>
+        <div
+          id="errors"
+          class="hidden mt-2 p-2 text-sm text-red-600 bg-red-100 rounded-lg md:col-span-2"
+        >
+          <div id="nameErrorBeforeSubmitButton" class="text-sm hidden"></div>
+          <div id="emailErrorBeforeSubmitButton" class="text-sm hidden"></div>
+          <div id="messageErrorBeforeSubmitButton" class="text-sm hidden"></div>
+          <div
+            id="dataProcessingErrorBeforeSubmitButton"
+            class="text-sm hidden"
+          ></div>
+        </div>
+        <input
+          type="submit"
+          class="text-md mt-4 max-h-[66px] self-end rounded-full bg-primary-orange px-6 py-4 font-bold uppercase text-white transition-all hover:scale-105 hover:bg-green focus:outline-2 focus:outline-green md:col-start-2"
+          value="Wyślij"
+        />
+      </form>
+    </div>
+    <div id="sendedData" class="mt-12 text-lg"></div>
+  </body>
+</html>
