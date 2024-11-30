@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Ankieta?!</title>
+  </head>
+  <body>
+    <h1>Ankieta?!</h1>
+    <form action="/result" method="POST">
+      <label for="firstAnswer">Czy lubisz koty?</label>
+      <input type="text" name="firstAnswer" required />
+
+      <label for="secondAnswer">Czy lubisz psy?</label>
+      <input type="text" name="secondAnswer" required />
+
+      <label for="thirdAnswer">Czy lubisz myszy?</label>
+      <input type="text" name="thirdAnswer" required />
+
+      <button type="submit">Wysyłam</button>
+    </form>
+  </body>
+</html>
