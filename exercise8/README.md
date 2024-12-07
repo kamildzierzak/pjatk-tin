@@ -1,21 +1,14 @@
 # Zadanie 8 - s26035
 
-## Opis
+## Jak uruchomić?
 
-Działającą funkcjonalność obejmującą wymagania zadanie można zobaczyć po uruchomieniu aplikacji pod adresem `http://localhost:5173/app/courses`.
+Aby uruchomić aplikację należy:
 
-- Można tam zobaczyć listę kursów.
-- Można dodać nowy kurs poprzez przycisk 'Dodaj kurs'. Przekieruje on do formularza dodawania kursu.
-- Po kliknięciu w kurs z listy, przekieruje on do widoku szczegółowego kursu, gdzie po za informacjami o kursie, można kurs edytować lub usunąć.
+1. W folderze głównym projektu uruchomić komendę `npm run install:all`.
+2. Po zakończeniu instalacji, uruchomić komendę `npm run dev`.
+3. Backend powinien działać na porcie 3000, a frontend na porcie 5173. Aplikacja powinna być dostępna pod adresem `http://localhost:5173`.
+4. Działającą funkcjonalność obejmującą wymagania zadania można zobaczyć po uruchomieniu aplikacji pod adresem `http://localhost:5173/app/courses`
 
-## Backend
-
-By uruchomić backend należy wejść do folderu `backend` i uruchomić komendę `npm install` a następnie `npm run dev`.
-
-Serwer powinien działać na porcie 3000.
-
-## Frontend
-
-By uruchomić frontend należy wejść do folderu `frontend` i uruchomić komendę `npm install` a następnie `npm run dev`.
-
-Aplikacja powinna być dostępna pod adresem `http://localhost:5173`.
+   - Można tam zobaczyć listę kursów.
+   - Można dodać nowy kurs poprzez przycisk 'Dodaj kurs'. Przekieruje on do formularza dodawania kursu.
+   - Po kliknięciu w kurs z listy, przekieruje on do widoku szczegółowego kursu, gdzie po za informacjami o kursie, można kurs edytować lub usunąć.
