@@ -51,19 +51,6 @@
       "teacher": "Jan Nowak",
       "students": 11,
       "max_students": 15
-    },
-    {
-      "id": 5,
-      "name": "Mistrzowie Matematyki",
-      "age_group": "Klasa 1-5",
-      "category": "Dla dzieci szkolnych",
-      "description": "Kurs doskonalący umiejętności matematyczne w formie kreatywnych zadań.",
-      "price": 2500,
-      "duration": "1 rok",
-      "schedule": "Sobota 14:00 - 15:30",
-      "teacher": "Jan Nowak",
-      "students": 3,
-      "max_students": 8
     }
   ]
 }
