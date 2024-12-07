@@ -1,4 +1,4 @@
-# Zadanie 6 - s26035
+# Zadanie 7 - s26035
 
 Należy zainstalować dependencies za pomocą komendy `npm install`;
 
