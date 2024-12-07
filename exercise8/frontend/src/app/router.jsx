@@ -12,6 +12,7 @@ import { DashboardRoute } from "./routes/app/dashboard";
 import { StudentsRoute } from "./routes/app/students";
 import { TeachersRoute } from "./routes/app/teachers";
 import { CoursesRoute } from "./routes/app/Courses/courses";
+import { AddCourseRoute } from "./routes/app/Courses/addCourse";
 import { CourseRoute } from "./routes/app/Courses/course";
 import { EditCourseRoute } from "./routes/app/Courses/editCourse";
 import { ScheduleRoute } from "./routes/app/schedule";
@@ -37,6 +38,7 @@ export const AppRouter = () => {
         <Route path="/app/*" element={<DashboardLayout />}>
           <Route index element={<DashboardRoute />} />
           <Route path="courses" element={<CoursesRoute />} />
+          <Route path="courses/new" element={<AddCourseRoute />} />
           <Route path="courses/:id" element={<CourseRoute />} />
           <Route path="courses/:id/edit" element={<EditCourseRoute />} />
           <Route path="teachers" element={<TeachersRoute />} />

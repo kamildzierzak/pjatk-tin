@@ -37,6 +37,28 @@ app.get("/api/courses/:id", (req, res) => {
   res.json(course);
 });
 
+app.post("/api/courses", (req, res) => {
+  const newCourseBody = req.body;
+
+  if (
+    !newCourseBody.name ||
+    !newCourseBody.age_group ||
+    !newCourseBody.teacher
+  ) {
+    return res.status(400).send("Missing required fields");
+  }
+
+  const data = readData();
+  const newCourse = {
+    id: data.courses.length + 3, // This is not a good way to generate an id but it will do for now ;)
+    ...newCourseBody,
+  };
+
+  data.courses.push(newCourse);
+  writeData(data);
+  res.status(201).json(newCourse);
+});
+
 app.put("/api/courses/:id", (req, res) => {
   const data = readData();
   const id = Number(req.params.id);

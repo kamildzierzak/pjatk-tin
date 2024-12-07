@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export const EditCourseRoute = () => {
-  const { id } = useParams();
+export const AddCourseRoute = () => {
   const [course, setCourse] = useState({
     name: "",
     age_group: "",
@@ -14,13 +13,6 @@ export const EditCourseRoute = () => {
   });
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetch(`http://localhost:3000/api/courses/${id}`)
-      .then((response) => response.json())
-      .then((data) => setCourse(data))
-      .catch((error) => console.error("Error fetching course:", error));
-  }, [id]);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setCourse((prev) => ({ ...prev, [name]: value }));
@@ -30,31 +22,31 @@ export const EditCourseRoute = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`http://localhost:3000/api/courses/${id}`, {
-        method: "PUT",
+      const response = await fetch("http://localhost:3000/api/courses", {
+        method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(course),
       });
 
       if (response.ok) {
-        alert("Kurs został zaktualizowany");
-        navigate(`/app/courses/${id}`);
+        alert("Kurs został dodany");
+        navigate("/app/courses");
       } else {
-        alert("Wystąpił błąd podczas aktualizacji kursu");
+        alert("Wystąpił błąd podczas dodawania kursu");
       }
     } catch (error) {
-      console.error("Error updating course:", error);
-      alert("Wystąpił błąd podczas aktualizacji kursu");
+      console.error("Error adding course:", error);
+      alert("Wystąpił błąd podczas dodawania kursu");
     }
   };
 
   return (
     <div className="p-4">
-      <h1 className="mb-4 text-2xl font-bold">Edytuj kurs</h1>
+      <h1 className="mb-4 text-2xl font-bold">Dodaj kurs</h1>
       <form onSubmit={handleSubmit} className="grid gap-4">
         <div className="flex flex-col gap-2">
           <label htmlFor="name" className="block font-semibold">
-            Nazwa kursu
+            Nazwa kursu *
           </label>
           <input
             type="text"
@@ -64,11 +56,12 @@ export const EditCourseRoute = () => {
             onChange={handleChange}
             placeholder="Nazwa kursu"
             className="w-full rounded border p-2"
+            required
           />
         </div>
         <div className="flex flex-col gap-2">
           <label htmlFor="age_group" className="block font-semibold">
-            Grupa wiekowa
+            Grupa wiekowa *
           </label>
           <input
             type="text"
@@ -78,6 +71,7 @@ export const EditCourseRoute = () => {
             onChange={handleChange}
             placeholder="Grupa wiekowa"
             className="w-full rounded border p-2"
+            required
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -137,7 +131,7 @@ export const EditCourseRoute = () => {
         </div>
         <div className="flex flex-col gap-2">
           <label htmlFor="teacher" className="block font-semibold">
-            Prowadzący
+            Prowadzący *
           </label>
           <input
             type="text"
@@ -147,13 +141,14 @@ export const EditCourseRoute = () => {
             onChange={handleChange}
             placeholder="Prowadzący"
             className="w-full rounded border p-2"
+            required
           />
         </div>
         <button
           type="submit"
-          className="mx-auto rounded bg-blue-500 p-2 text-white transition-all hover:scale-110 hover:bg-blue-600"
+          className="mx-auto rounded bg-green-500 p-2 text-white transition-all hover:scale-110 hover:bg-green-600"
         >
-          Zapisz zmiany
+          Dodaj kurs
         </button>
       </form>
     </div>

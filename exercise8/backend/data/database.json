@@ -47,6 +47,26 @@
       "schedule": "Czwartek 15:00 - 16:30",
       "teacher": "Jan Nowak",
       "max_students": 15
+    },
+    {
+      "id": 104,
+      "name": "Jestem Testem",
+      "age_group": "3-5 lat",
+      "category": "Dla dzieciaków",
+      "description": "Lorem ipsum",
+      "schedule": "Jutro",
+      "max_students": "55",
+      "teacher": "Ja Prowadzę"
+    },
+    {
+      "id": 8,
+      "name": "Jestem Testem 3",
+      "age_group": "3-5555 lat",
+      "category": "Dla chyba wampirów",
+      "description": "Jest",
+      "schedule": "",
+      "max_students": "100",
+      "teacher": "Jest"
     }
   ]
 }

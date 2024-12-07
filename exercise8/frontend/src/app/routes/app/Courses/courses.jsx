@@ -51,7 +51,7 @@ export const CoursesRoute = () => {
             <a
               href={`http://localhost:5173/app/courses/${course.id}`}
               key={course.id}
-              className="rounded border-2 border-green-500 hover:bg-green-300"
+              className="rounded border-2 border-green-300 p-2 hover:bg-green-300"
             >
               <div className="grid grid-cols-7 place-items-center items-center gap-4 p-2">
                 <span className="text-center font-semibold">{course.name}</span>
