@@ -13,6 +13,7 @@ import { StudentsRoute } from "./routes/app/students";
 import { TeachersRoute } from "./routes/app/teachers";
 import { CoursesRoute } from "./routes/app/Courses/courses";
 import { CourseRoute } from "./routes/app/Courses/course";
+import { EditCourseRoute } from "./routes/app/Courses/editCourse";
 import { ScheduleRoute } from "./routes/app/schedule";
 import { MaterialsRoute } from "./routes/app/materials";
 
@@ -37,6 +38,7 @@ export const AppRouter = () => {
           <Route index element={<DashboardRoute />} />
           <Route path="courses" element={<CoursesRoute />} />
           <Route path="courses/:id" element={<CourseRoute />} />
+          <Route path="courses/:id/edit" element={<EditCourseRoute />} />
           <Route path="teachers" element={<TeachersRoute />} />
           <Route path="students" element={<StudentsRoute />} />
           <Route path="schedule" element={<ScheduleRoute />} />

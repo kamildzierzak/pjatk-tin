@@ -2,16 +2,15 @@
   "courses": [
     {
       "id": 1,
-      "name": "Przygoda z Matematyką",
-      "age_group": "4-5 lat",
-      "category": "Dla dzieci przedszkolnych",
-      "description": "Pierwsze kroki w matematyce, nauka liczb i kształtów.",
+      "name": "Przygoda z Fizyką",
+      "age_group": "3-5 lat",
+      "category": "Dla przedszkolnych dzieci",
+      "description": "Pierwsze kroki w fizyce",
       "price": 1200,
       "duration": "8 tygodni",
-      "schedule": "Poniedziałek 17:00 - 18:30",
-      "teacher": "Jan Nowak",
-      "students": 5,
-      "max_students": 10
+      "schedule": "Poniedziałek 17:00 - 18:40",
+      "teacher": "Jan Nowakowy",
+      "max_students": "12"
     },
     {
       "id": 2,
@@ -23,7 +22,6 @@
       "duration": "10 tygodni",
       "schedule": "Niedziela 10:00 - 11:30",
       "teacher": "Jan Nowak",
-      "students": 3,
       "max_students": 12
     },
     {
@@ -36,7 +34,6 @@
       "duration": "1 semestr",
       "schedule": "Środa 16:00 - 17:30",
       "teacher": "Jan Nowak",
-      "students": 9,
       "max_students": 10
     },
     {
@@ -49,7 +46,6 @@
       "duration": "2 semestry",
       "schedule": "Czwartek 15:00 - 16:30",
       "teacher": "Jan Nowak",
-      "students": 11,
       "max_students": 15
     }
   ]

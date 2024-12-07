@@ -31,19 +31,19 @@ export const CoursesRoute = () => {
         </select>
         <a
           href="http://localhost:5173/app/courses/new"
-          className="flex min-w-fit items-center rounded bg-green-500 p-2 text-white transition-all hover:scale-110"
+          className="flex min-w-fit items-center rounded bg-green-500 p-2 text-white transition-all hover:scale-110 hover:bg-green-600"
         >
           Dodaj kurs
         </a>
       </div>
       <div className="mt-4">
-        <div className="grid grid-cols-7 place-items-center items-center gap-2 border-b-2 border-green-500 p-2 font-semibold">
+        <div className="grid grid-cols-7 place-items-center items-center gap-4 border-b-2 border-yellow-500 p-2 font-semibold">
           <span>Nazwa</span>
           <span>Grupa wiekowa</span>
           <span>Kategoria</span>
           <span>Opis</span>
           <span>Termin</span>
-          <span>Uczniów / Max</span>
+          <span>Limit miejsc</span>
           <span>Prowadzący</span>
         </div>
         <div className="mt-4 flex flex-col gap-4">
@@ -51,17 +51,15 @@ export const CoursesRoute = () => {
             <a
               href={`http://localhost:5173/app/courses/${course.id}`}
               key={course.id}
-              className="hover:bg-green-300"
+              className="rounded border-2 border-green-500 hover:bg-green-300"
             >
-              <div className="grid grid-cols-7 place-items-center items-center gap-2 rounded border-2 border-green-500 p-2">
+              <div className="grid grid-cols-7 place-items-center items-center gap-4 p-2">
                 <span className="text-center font-semibold">{course.name}</span>
                 <span>{course.age_group}</span>
                 <span>{course.category}</span>
                 <span>{course.description}</span>
                 <span>{course.schedule}</span>
-                <span>
-                  {course.students} / {course.max_students}
-                </span>
+                <span>{course.max_students}</span>
                 <span>{course.teacher}</span>
               </div>
             </a>

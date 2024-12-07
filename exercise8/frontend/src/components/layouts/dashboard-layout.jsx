@@ -35,9 +35,12 @@ export const DashboardLayout = () => {
       </aside>
       <div className="flex flex-col sm:pl-60">
         <header className="sticky top-0 flex h-20 w-full flex-row items-center justify-end border-b-2 border-yellow-400 bg-white p-4">
-          <div className="rounded bg-green-500 p-2 font-semibold text-white transition-all hover:scale-110">
-            <a href="/">Wyloguj</a>
-          </div>
+          <a
+            href="/"
+            className="rounded bg-green-500 p-2 font-semibold text-white transition-all hover:scale-110 hover:bg-green-600"
+          >
+            Wyloguj
+          </a>
         </header>
         <main className="flex-1">
           <Outlet />

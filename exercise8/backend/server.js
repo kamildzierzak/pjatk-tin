@@ -37,6 +37,23 @@ app.get("/api/courses/:id", (req, res) => {
   res.json(course);
 });
 
+app.put("/api/courses/:id", (req, res) => {
+  const data = readData();
+  const id = Number(req.params.id);
+  const courseIndex = data.courses.findIndex(course => course.id === id);
+
+  if (courseIndex === -1) {
+    res.status(404).send("Course not found");
+  }
+
+  data.courses[courseIndex] = {
+    ...data.courses[courseIndex],
+    ...req.body,
+  };
+  writeData(data);
+  res.json(data.courses[courseIndex]);
+});
+
 app.delete("/api/courses/:id", (req, res) => {
   const data = readData();
   const id = Number(req.params.id);
