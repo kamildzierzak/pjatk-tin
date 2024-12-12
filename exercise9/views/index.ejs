@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Formularz</title>
+  </head>
+  <body>
+    <h1>😐 Formularz 👍</h1>
+    <form action="/save" method="POST">
+      <div>
+        <label for="persistentCookieText">
+          Co zapisać w ciasteczku terminowym?
+        </label>
+        <input
+          id="persistentCookieText"
+          type="text"
+          name="persistentCookieText"
+          required
+        />
+        <label for="textSessionCookie"></label>
+      </div>
+      <div>
+        <label for="sessionCookieText">
+          Co zapisać w ciasteczku sesyjnym?
+        </label>
+        <input
+          id="sessionCookieText"
+          type="text"
+          name="sessionCookieText"
+          required
+        />
+      </div>
+      <div>
+        <label for="sessionVariableText">
+          Co zapisać w zmiennej sesyjnej?
+        </label>
+        <input
+          id="sessionVariableText"
+          type="text"
+          name="sessionVariableText"
+          required
+        />
+      </div>
+      <div>
+        <label for="localStorageText"> Co zapisać w localStorage? </label>
+        <input
+          id="localStorageText"
+          type="text"
+          name="localStorageText"
+          required
+        />
+      </div>
+      <button type="submit">Zapisz</button>
+    </form>
+  </body>
+</html>

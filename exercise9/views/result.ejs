@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Wynik</title>
+  </head>
+  <body>
+    <h1>Co zapisano?</h1>
+    <div id="container">
+      <div>
+        <h2>W persistentCookie:</h2>
+        <p><%= persistentCookieText %></p>
+      </div>
+      <div>
+        <h2>W sessionCookie:</h2>
+        <p><%= sessionCookieText %></p>
+      </div>
+      <div>
+        <h2>W sessionVariable:</h2>
+        <p><%= sessionVariableText %></p>
+      </div>
+      <div>
+        <h2>W localStorage:</h2>
+        <p id="localStorageText">Cierpliwości...</p>
+      </div>
+    </div>
+    <script>
+      const localStorageText = "<%= localStorageText %>";
+      localStorage.setItem("localStorageText", localStorageText);
+
+      document.getElementById("localStorageText").innerText =
+        localStorage.getItem("localStorageText") || "Brak wartości";
+    </script>
+  </body>
+</html>
