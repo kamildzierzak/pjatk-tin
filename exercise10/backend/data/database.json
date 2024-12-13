@@ -1,0 +1,72 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "name": "Przygoda z Fizyką",
+      "age_group": "3-5 lat",
+      "category": "Dla przedszkolnych dzieci",
+      "description": "Pierwsze kroki w fizyce",
+      "price": 1200,
+      "duration": "8 tygodni",
+      "schedule": "Poniedziałek 17:00 - 18:40",
+      "teacher": "Jan Nowakowy",
+      "max_students": "12"
+    },
+    {
+      "id": 2,
+      "name": "Kreatywne Zabawy",
+      "age_group": "5-6 lat",
+      "category": "Dla dzieci przedszkolnych",
+      "description": "Nauka poprzez zabawę, rozwijająca kreatywność i ciekawość świata.",
+      "price": 1500,
+      "duration": "10 tygodni",
+      "schedule": "Niedziela 10:00 - 11:30",
+      "teacher": "Jan Nowak",
+      "max_students": "12"
+    },
+    {
+      "id": 3,
+      "name": "Mali Matematycy",
+      "age_group": "5-6 lat",
+      "category": "Dla dzieci przedszkolnych",
+      "description": "Kurs rozwijający logiczne myślenie i zdolności matematyczne.",
+      "price": 2000,
+      "duration": "1 semestr",
+      "schedule": "Środa 16:00 - 17:30",
+      "teacher": "Jan Nowak",
+      "max_students": "10"
+    },
+    {
+      "id": 4,
+      "name": "Mądre Sówki",
+      "age_group": "Klasa 1-2",
+      "category": "Dla dzieci szkolnych",
+      "description": "Zajęcia wspomagające naukę czytania i pisania dla młodszych dzieci.",
+      "price": 1800,
+      "duration": "2 semestry",
+      "schedule": "Czwartek 15:00 - 16:30",
+      "teacher": "Jan Nowak",
+      "max_students": 15
+    },
+    {
+      "id": 104,
+      "name": "Jestem Testem",
+      "age_group": "3-5 lat",
+      "category": "Dla dzieciaków",
+      "description": "Lorem ipsum",
+      "schedule": "Jutro",
+      "max_students": "55",
+      "teacher": "Ja Prowadzę"
+    },
+    {
+      "id": 8,
+      "name": "Jestem Testem 3",
+      "age_group": "3-5555 lat",
+      "category": "Dla chyba wampirów",
+      "description": "Jest",
+      "schedule": "",
+      "max_students": "100",
+      "teacher": "Jest"
+    }
+  ]
+}
