@@ -1,5 +1,6 @@
 import heroImage from "../assets/hero.jpg";
 import { Container } from "./Container";
+import { LinkButton } from "./LinkButton";
 
 export const Hero = () => {
   return (
@@ -22,18 +23,16 @@ export const Hero = () => {
               nauki i miłości do wiedzy.
             </p>
             <div className="flex gap-4 text-2xl font-bold">
-              <a
-                href="/courses"
-                className="rounded bg-green-500 p-4 text-white transition-all hover:scale-110"
-              >
+              <LinkButton to="/courses" variant="secondary" className={"p-4"}>
                 Zobacz kursy
-              </a>
-              <a
-                href="/auth/register"
-                className="rounded bg-green-500 p-4 text-white transition-all hover:scale-110"
+              </LinkButton>
+              <LinkButton
+                to="/auth/register"
+                variant="primary"
+                className={"p-4"}
               >
                 Dołącz do nas
-              </a>
+              </LinkButton>
             </div>
           </div>
         </Container>

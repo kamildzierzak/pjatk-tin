@@ -13,9 +13,8 @@ Aby uruchomić aplikację należy:
 - App jest użyty jako głowny komponent, który renderuje wszystkie inne komponenty. Użyłem React Router do nawigacji między stronami.
 - Główna funkcjonalność obejmuje zarządzanie listą kursów. W ramach tej funkcjonalności pokażę użyte komponenty:
   - Stateless komponenty:
-    - Button
-    - CourseListElement
+    -
     -
   - Stateful komponenty:
-    - CourseList
-    - CourseForm
+    -
+    -

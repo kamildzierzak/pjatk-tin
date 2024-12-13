@@ -1,4 +1,5 @@
 import { Container } from "./Container";
+import { LinkButton } from "./LinkButton";
 
 export const Header = () => {
   return (
@@ -8,7 +9,7 @@ export const Header = () => {
           .aha
         </a>
         <div className="flex gap-4">
-          <ul className="text-md flex items-center gap-4">
+          <ul className="flex items-center gap-4">
             <li>
               <a href="/">Strona główna</a>
             </li>
@@ -22,13 +23,13 @@ export const Header = () => {
               <a href="/contact">Kontakt</a>
             </li>
           </ul>
-          <a
-            // href="/auth/login"
-            href="/app"
-            className="rounded bg-green-500 p-2 font-semibold text-white transition-all hover:scale-110"
+          <LinkButton
+            //  to="/auth/login"
+            to="/app"
+            variant="primary"
           >
             Zaloguj się
-          </a>
+          </LinkButton>
         </div>
       </Container>
     </nav>

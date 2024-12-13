@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Button } from "../../../../components/Button";
 
 export const AddCourseRoute = () => {
   const [course, setCourse] = useState({
@@ -144,12 +145,9 @@ export const AddCourseRoute = () => {
             required
           />
         </div>
-        <button
-          type="submit"
-          className="mx-auto rounded bg-green-500 p-2 text-white transition-all hover:scale-110 hover:bg-green-600"
-        >
+        <Button type="submit" variant="primary" className="mx-auto">
           Dodaj kurs
-        </button>
+        </Button>
       </form>
     </div>
   );

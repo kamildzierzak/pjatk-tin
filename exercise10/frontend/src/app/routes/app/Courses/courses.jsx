@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { LinkButton } from "../../../../components/LinkButton";
 import { DataTable } from "../../../../components/DataTable";
 
 // TODO - move to config file
@@ -66,12 +67,9 @@ export const CoursesRoute = () => {
           <option value="7-8">Dla 7-8 latków</option>
           <option value="9-10">Dla 9-10 latków</option>
         </select>
-        <a
-          href={`${BASE_URL}/new`}
-          className="flex min-w-fit items-center rounded bg-green-500 p-2 text-white transition-all hover:scale-110 hover:bg-green-600"
-        >
+        <LinkButton to={`${BASE_URL}/new`} variant="primary">
           Dodaj kurs
-        </a>
+        </LinkButton>
       </div>
 
       {loading && <p>Ładowanie...</p>}

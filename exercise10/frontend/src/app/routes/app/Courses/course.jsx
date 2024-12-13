@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { Button } from "../../../../components/Button";
+import { LinkButton } from "../../../../components/LinkButton";
 
 export const CourseRoute = () => {
   const { id } = useParams();
@@ -32,10 +34,6 @@ export const CourseRoute = () => {
     }
   };
 
-  const handleEdit = () => {
-    navigate(`/app/courses/${id}/edit`);
-  };
-
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold">{course.name}</h1>
@@ -60,18 +58,12 @@ export const CourseRoute = () => {
             </div>
           </div>
           <div className="mt-8 flex items-center justify-between">
-            <button
-              className="tranistion-all rounded bg-red-500 p-2 text-white hover:scale-110 hover:bg-red-600"
-              onClick={handleDelete}
-            >
+            <Button onClick={handleDelete} variant="danger">
               Usuń
-            </button>
-            <button
-              className="tranistion-all rounded bg-green-500 p-2 text-white hover:scale-110 hover:bg-green-600"
-              onClick={handleEdit}
-            >
+            </Button>
+            <LinkButton to={`/app/courses/${id}/edit`} variant="secondary">
               Edytuj
-            </button>
+            </LinkButton>
           </div>
         </div>
       </div>

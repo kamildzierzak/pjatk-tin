@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { Button } from "../../../../components/Button";
 
 export const EditCourseRoute = () => {
   const { id } = useParams();
@@ -149,12 +150,9 @@ export const EditCourseRoute = () => {
             className="w-full rounded border p-2"
           />
         </div>
-        <button
-          type="submit"
-          className="mx-auto rounded bg-blue-500 p-2 text-white transition-all hover:scale-110 hover:bg-blue-600"
-        >
+        <Button type="submit" variant="primary" className="mx-auto">
           Zapisz zmiany
-        </button>
+        </Button>
       </form>
     </div>
   );

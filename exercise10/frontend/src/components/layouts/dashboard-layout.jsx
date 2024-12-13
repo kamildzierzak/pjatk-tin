@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom";
+import { LinkButton } from "../LinkButton";
 
 export const DashboardLayout = () => {
   return (
@@ -35,12 +36,9 @@ export const DashboardLayout = () => {
       </aside>
       <div className="flex flex-col sm:pl-60">
         <header className="sticky top-0 flex h-20 w-full flex-row items-center justify-end border-b-2 border-yellow-400 bg-white p-4">
-          <a
-            href="/"
-            className="rounded bg-green-500 p-2 font-semibold text-white transition-all hover:scale-110 hover:bg-green-600"
-          >
+          <LinkButton to="/" variant="primary">
             Wyloguj
-          </a>
+          </LinkButton>
         </header>
         <main className="flex-1">
           <Outlet />
