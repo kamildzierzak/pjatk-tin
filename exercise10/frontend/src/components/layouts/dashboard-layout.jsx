@@ -35,7 +35,7 @@ export const DashboardLayout = () => {
         </nav>
       </aside>
       <div className="flex flex-col sm:pl-60">
-        <header className="sticky top-0 flex h-20 w-full flex-row items-center justify-end border-b-2 border-yellow-400 bg-white p-4">
+        <header className="sticky top-0 flex h-20 w-full flex-row items-center justify-end border-b-2 border-yellow-500 bg-white p-4">
           <LinkButton to="/" variant="primary">
             Wyloguj
           </LinkButton>

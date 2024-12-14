@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ContentLayout } from "../../../../components/layouts/content-layout";
 import { LinkButton } from "../../../../components/LinkButton";
 import { DataTable } from "../../../../components/DataTable";
 
@@ -48,25 +49,14 @@ export const CoursesRoute = () => {
   };
 
   return (
-    <div className="p-4">
-      <div className="flex gap-4 p-4">
+    <ContentLayout title="Kursy">
+      <div className="flex gap-4 py-4">
         <input
           type="text"
           className="w-full rounded border-2 border-green-500 p-2"
           placeholder="Wyszukaj kurs"
           disabled
         />
-        <select
-          className="rounded border-2 border-green-500 p-2"
-          name="filter"
-          id="filter"
-          disabled
-        >
-          <option value="all">Wszystkie</option>
-          <option value="5-6">Dla 5-6 latków</option>
-          <option value="7-8">Dla 7-8 latków</option>
-          <option value="9-10">Dla 9-10 latków</option>
-        </select>
         <LinkButton to={`${BASE_URL}/new`} variant="primary">
           Dodaj kurs
         </LinkButton>
@@ -81,6 +71,6 @@ export const CoursesRoute = () => {
           onRowClick={handleRowClick}
         />
       )}
-    </div>
+    </ContentLayout>
   );
 };
