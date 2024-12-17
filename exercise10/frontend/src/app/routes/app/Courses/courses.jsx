@@ -6,10 +6,16 @@ import { Button } from "@components/Button";
 import { Drawer } from "@components/Drawer";
 import { DataTable } from "@components/DataTable";
 import { useNavigate } from "react-router-dom";
+import { ValidationMessage } from "@/components/ValidationMessage";
 
 export const CoursesRoute = () => {
+  const navigate = useNavigate();
   const { courses, loading, error, setCourses } = useCourses();
-  const { isOpen, open, close } = useDisclosure();
+  const {
+    isOpen: isAddCourseDrawerOpen,
+    open: openAddCourseDrawer,
+    close: closeAddCourseDrawer,
+  } = useDisclosure();
   const [course, setCourse] = useState({
     name: "",
     age_group: "",
@@ -19,7 +25,101 @@ export const CoursesRoute = () => {
     max_students: "",
     teacher: "",
   });
-  const navigate = useNavigate();
+  const [validationErrors, setValidationErrors] = useState({});
+
+  const handleRowClick = (row) => {
+    navigate(`/app/courses/${row.id}`);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setCourse((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const validateCourse = () => {
+    const errors = {};
+
+    if (!course.name.trim() || course.name.length < 3)
+      errors.name = "Nazwa kursu jest wymagana i musi mieć co najmniej 3 znaki";
+
+    if (!course.age_group.trim())
+      errors.age_group = "Wymagane jest podanie grupy wiekowej";
+
+    if (!course.teacher.trim())
+      errors.teacher = "Wymagane jest wybranie prowadzącego";
+
+    if (course.max_students < 8 || course.max_students > 16) {
+      errors.max_students = "Liczba uczestników musi być z zakresu od 8 do 16";
+    }
+
+    return errors;
+  };
+
+  const handleAddCourse = async (e) => {
+    e.preventDefault();
+
+    const errors = validateCourse();
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors);
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:3000/api/courses", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(course),
+      });
+
+      if (response.ok) {
+        alert("Kurs został dodany");
+        const newCourse = await response.json();
+        setCourses((prev) => [...prev, newCourse]);
+        setCourse({
+          name: "",
+          age_group: "",
+          category: "",
+          description: "",
+          schedule: "",
+          max_students: "",
+          teacher: "",
+        });
+        closeAddCourseDrawer();
+      } else {
+        alert("Wystąpił błąd podczas dodawania kursu");
+      }
+    } catch (error) {
+      console.error("Error adding course:", error);
+      alert("Wystąpił błąd podczas dodawania kursu");
+    }
+  };
+
+  const handleCourseDelete = async (id) => {
+    const userConfirmation = window.confirm(
+      "Czy na pewno chcesz usunąć ten kurs?",
+    );
+
+    if (userConfirmation) {
+      try {
+        const response = await fetch(
+          `http://localhost:3000/api/courses/${id}`,
+          {
+            method: "DELETE",
+          },
+        );
+
+        if (response.ok) {
+          setCourses((prev) => prev.filter((course) => course.id !== id));
+          alert("Kurs został usunięty");
+        } else {
+          alert("Wystąpił błąd podczas usuwania kursu");
+        }
+      } catch (error) {
+        console.error("Error deleting course:", error);
+        alert("Wystąpił błąd podczas usuwania kursu");
+      }
+    }
+  };
 
   const columns = [
     { label: "Nazwa", accessor: "name", sortable: true },
@@ -33,46 +133,29 @@ export const CoursesRoute = () => {
       accessor: "max_students",
       sortable: true,
     },
+    {
+      label: "Akcje",
+      accessor: "actions",
+      sortable: false,
+      render: (row) => (
+        <Button
+          variant="danger"
+          onClick={(e) => {
+            e.stopPropagation();
+            handleCourseDelete(row.id);
+          }}
+        >
+          Usuń
+        </Button>
+      ),
+    },
   ];
-
-  const handleRowClick = (row) => {
-    navigate(`/app/courses/${row.id}`);
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setCourse((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await fetch("http://localhost:3000/api/courses", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(course),
-      });
-
-      if (response.ok) {
-        alert("Kurs został dodany");
-        const newCourse = await response.json();
-        setCourses((prev) => [...prev, newCourse]);
-        close();
-      } else {
-        alert("Wystąpił błąd podczas dodawania kursu");
-      }
-    } catch (error) {
-      console.error("Error adding course:", error);
-      alert("Wystąpił błąd podczas dodawania kursu");
-    }
-  };
 
   return (
     <ContentLayout title="Kursy">
-      {isOpen && (
-        <Drawer onClose={close} title="Dodaj kurs">
-          <form onSubmit={handleSubmit} className="grid gap-4">
+      {isAddCourseDrawerOpen && (
+        <Drawer onClose={closeAddCourseDrawer} title="Dodaj kurs">
+          <form onSubmit={handleAddCourse} className="grid gap-4">
             <div className="flex flex-col gap-2">
               <label htmlFor="name" className="block font-semibold">
                 Nazwa kursu *
@@ -85,7 +168,11 @@ export const CoursesRoute = () => {
                 onChange={handleChange}
                 placeholder="Nazwa kursu"
                 className="w-full rounded border p-2"
-                required
+                // required
+              />
+              <ValidationMessage
+                isValid={!validationErrors.name}
+                message={validationErrors.name}
               />
             </div>
             <div className="flex flex-col gap-2">
@@ -100,7 +187,11 @@ export const CoursesRoute = () => {
                 onChange={handleChange}
                 placeholder="Grupa wiekowa"
                 className="w-full rounded border p-2"
-                required
+                // required
+              />
+              <ValidationMessage
+                isValid={!validationErrors.age_group}
+                message={validationErrors.age_group}
               />
             </div>
             <div className="flex flex-col gap-2">
@@ -157,6 +248,10 @@ export const CoursesRoute = () => {
                 placeholder="Limit miejsc"
                 className="w-full rounded border p-2"
               />
+              <ValidationMessage
+                isValid={!validationErrors.max_students}
+                message={validationErrors.max_students}
+              />
             </div>
             <div className="flex flex-col gap-2">
               <label htmlFor="teacher" className="block font-semibold">
@@ -170,7 +265,11 @@ export const CoursesRoute = () => {
                 onChange={handleChange}
                 placeholder="Prowadzący"
                 className="w-full rounded border p-2"
-                required
+                // required
+              />
+              <ValidationMessage
+                isValid={!validationErrors.teacher}
+                message={validationErrors.teacher}
               />
             </div>
             <Button type="submit" variant="primary" className="mx-auto">
@@ -186,7 +285,7 @@ export const CoursesRoute = () => {
           placeholder="Wyszukaj kurs"
           disabled
         />
-        <Button onClick={open} variant="primary">
+        <Button onClick={openAddCourseDrawer} variant="primary">
           Dodaj kurs
         </Button>
       </div>

@@ -49,44 +49,42 @@
       "max_students": 15
     },
     {
-      "id": 104,
-      "name": "Jestem Testem",
-      "age_group": "3-5 lat",
-      "category": "Dla dzieciaków",
-      "description": "Lorem ipsum",
-      "schedule": "Jutro",
-      "max_students": "55",
-      "teacher": "Ja Prowadzę"
+      "id": 7,
+      "name": "Wspaniała Podróż",
+      "age_group": "5-10 lat",
+      "category": "Ogólna",
+      "description": "",
+      "schedule": "Niedziela 13:30 - 15:30",
+      "max_students": "15",
+      "teacher": "Jan Podróżnik"
     },
     {
       "id": 8,
-      "name": "Jestem Testem 3",
+      "name": "Jestem Testem",
       "age_group": "3-5555 lat",
-      "category": "Dla chyba wampirów",
-      "description": "Jest",
-      "schedule": "",
-      "max_students": "100",
-      "teacher": "Jest"
+      "category": "Pojazdy motorowe",
+      "description": "",
+      "schedule": "Niedziela 13:30 - 15:30",
+      "max_students": "22",
+      "teacher": "Jan Podróżnik",
+      "errors": {
+        "name": "",
+        "age_group": "",
+        "category": "",
+        "schedule": "",
+        "max_students": "Maksymalna liczba uczestników musi być z zakresu 8-16",
+        "teacher": ""
+      }
     },
     {
       "id": 9,
       "name": "Jestem Testem",
-      "age_group": "1-10",
-      "category": "Dla dzieciaków",
+      "age_group": "3-5555 lat",
+      "category": "",
       "description": "",
-      "schedule": "WczorEJ",
-      "max_students": "15",
-      "teacher": "Kawosz"
-    },
-    {
-      "id": 10,
-      "name": "Pojawiam",
-      "age_group": "3-5 lat",
-      "category": "Dla dzieciaków",
-      "description": "",
-      "schedule": "Jutro",
-      "max_students": "15",
-      "teacher": "Jan Nowakowy"
+      "schedule": "",
+      "max_students": "16",
+      "teacher": "Jan Podróżnik"
     }
   ]
 }
